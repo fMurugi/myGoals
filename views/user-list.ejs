@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>
+            fetch using MYSQL and Node.js</Node>
+        </title>
+    </head>
+    <body>
+        <div class="table-data">
+            <h2>Display Data using Node.js $ MYSQL</h2>
+            <table border ="1">
+                <tr>
+                    <th>goalID</th>
+                    <th>category</th>
+                    <th>text</th>
+                    <th>goalComplete</th>
+                    <th>goalDate</th>
+                    
+
+                </tr>
+                <%
+                if(goals.length!=0){
+                    var i=1;
+                    goals.forEach(function(data){
+                 %>
+                 <tr>
+                    <!-- <td><%=i; %></td> -->
+                    <td><%=data.goalID %></td>
+                    <td><%=data.category %></td>
+                    <td><%=data.text %></td>
+                    <td><%=data.goalComplete %></td>
+                    <td><%=data.goalDate %></td>
+                    <td><a href="/users/edit/<%=data.id%>">Edit</a></td>
+                    <td><a href="/users/delete/<%=data.id%>">Delete</a></td>
+                </tr>
+                <%  i++; }) %>
+                <% } else{ %>
+                    <tr>
+                        <td colspan="7">No Data Found</td>
+                    </tr>
+                <% } %>
+            </table>
+        </div>
+    </body>
+</html>

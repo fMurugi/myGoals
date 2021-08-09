@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <link rel="stylesheet" href="http://cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+    <link rel="stylesheet" href="http://cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+    <link rel='stylesheet' href='/stylesheets/goals.css' />
+    <title>myGoals tracker</title>
+</head>
+<body>
+    <div id="container">
+        <h1>New Goal </h1>
+        <form action = "http://localhost:3000/goals/add" method = "POST" >
+            <label for="cat">category</label>
+            <select name="cat" id="cat">
+                <option value="0">Personal</option>
+                <option value="1">Professional</option>
+                <option value="2">Other</option>
+            </select>
+            <label for="text">Goal</label>
+            <textarea name="text" id="text"></textarea>
+            <label for ="goaldate"> Date</label>
+            <input type="date" id="goaldate" name="goaldate"/>
+            <label for="complete">Goal Completed</label>
+            <input type="checkbox" id="complete" name="complete" value="1" /><br/>
+           <button type="submit">Submit Goal</button>
+        </form>
+        <%-include('./user-list.ejs');%>
+
+    </div>
+    
+
+
+</body>
+</html>
