@@ -31,7 +31,7 @@
                     <td><%=data.goalComplete %></td>
                     <td><%=data.goalDate %></td>
                     <td><a href="/goals/edit/<%=data.id%>">Edit</a></td>
-                    <td><a href="/goals/delete/<%=data.goalID%>">Delete</a></td>
+                    <td><a onClick="deleteButton(`<%=data.goalID%>`)" >Delete</a></td>
                 </tr>
                 <%  i++; }) %>
                 <% } else{ %>
@@ -41,5 +41,15 @@
                 <% } %>
             </table>
         </div>
+        <script>
+            function deleteButton(goalId){
+                const url = `/goals/delete/${goalId}`
+                fetch(url, {method: "delete"}).then(() => {
+                    window.location.href = `/goals/`;
+                    // nothing needs to happen, server will redirect
+                }).catch(error => alert(err.message))
+
+            }
+        </script>
     </body>
 </html>
