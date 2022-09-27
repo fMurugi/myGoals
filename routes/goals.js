@@ -24,7 +24,22 @@ router.post('/add', function(req,res,next){
   res.redirect('/goals')
 });
 
+router.get('/delete/:goalID',function(req,res,next){
+  var id = req.params.goalID;
+  console.log("-----opppppp");
+  var query = `DELETE FROM mygoals  WHERE goalID = ${id}`;
 
+  db.query(query,function(error,data){
+    if(error){
+      throw error;
+    }
+    else{
+      res.redirect('/goals');
+    }
+
+  });
+
+});
 
 module.exports = router;
 
