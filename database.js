@@ -1,9 +1,9 @@
 var mysql = require('mysql');
 var conn = mysql.createConnection({
   host: 'localhost',
-  user: 'httpserver',
-  password: 'newpassword',
-  database: 'formgoals' 
+  user: 'root',
+  password: 'rootpassword',
+  database: 'mygoals' 
 }); 
 conn.connect(function(err) {
   if (err) throw err;

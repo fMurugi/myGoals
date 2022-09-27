@@ -16,7 +16,7 @@ router.post('/add', function(req,res,next){
   // store user input data
   const userDetails=req.body;
   // insert user goals into the mygoals table
-  db.query("INSERT INTO myGoals (Category,text,goalComplete,goalDate) VALUES(? ,?,?,?)",[userDetails.cat ,userDetails.text,userDetails.complete,userDetails.goaldate],function(err,data){
+  db.query("INSERT INTO mygoals (Category,text,goalComplete,goalDate) VALUES(? ,?,?,?)",[userDetails.cat ,userDetails.text,userDetails.complete,userDetails.goaldate],function(err,data){
     if (err) throw err;
     console.log("user data is inserted successfully");
   });
